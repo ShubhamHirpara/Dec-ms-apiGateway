@@ -7,12 +7,12 @@ spring:
         - id: CUSTOMER-SERVICE
           uri: lb://CUSTOMER-SERVICE
           predicates:
-            - Path=/cust/**
+            - Path=/customer/**
 
         - id: REVIEW-SERVICE
           uri: lb://REVIEW-SERVICE
           predicates:
-            - Path=/rev/**
+            - Path=/review/**
 
 server:
   port: 9090
