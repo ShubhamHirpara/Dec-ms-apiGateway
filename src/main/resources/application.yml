@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: CUSTOMER-SERVICE
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/cust/**
+
+        - id: REVIEW-SERVICE
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/rev/**
+
+server:
+  port: 9090
+eureka:
+  client:
+    register-with-eureka: true
+  service-url: http://localhost:8761/eureka/
+
